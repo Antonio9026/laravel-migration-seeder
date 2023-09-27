@@ -5,7 +5,7 @@ use App\Models\Train;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-class TainsTableSeeder extends Seeder
+class TrainsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,8 +17,8 @@ class TainsTableSeeder extends Seeder
         $orario_di_partenza = [];
         for ($i=0; $i < 20 ; $i++) { 
            $treno = new Train();
-           $treno->azienda = array_rand( $aziende) ;
-           $treno->stazione_di_partenza = array_rand(  $stazioni) ;
+           $treno->azienda = $aziende [array_rand( $aziende)] ;
+           $treno->stazione_di_partenza =$stazioni[array_rand($stazioni)]  ;
            $treno->orario_di_partenza = $faker->time();
            $treno->orario_di_arrivo = $faker->time();
            $treno->codice_treno = $faker->randomNumber(5);
