@@ -8,7 +8,8 @@ class TrainController extends Controller
 {
     public function index()
     {
-        $trains =  Train::all();
+        $trains =  Train::whereDate("data_di_partenza", ">=", "2022-12-17")
+        ->OrderBy("data_di_partenza")->get();
         // dd($trains);
 
         return view('home',["trains"=>$trains]);
