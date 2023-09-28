@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->date("data_di_partenza")->after("numero_carrozze")->nullable();
+            $table->dateTimeBetween('-1 week', '+1 week')("data_di_partenza")->after("numero_carrozze")->nullable();
         });
     }
 
